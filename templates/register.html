@@ -1,0 +1,76 @@
+{% include 'layout.html' %}
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">Register</div>
+    <div class="card-body">
+      <form method="post" action="/users/register">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" />
+            {% if errors['email'] %} {% for error in errors['email'] %}
+            <ul>
+              <li>{{error}}</li>
+            </ul>
+            {% endfor %} {% endif %}
+          </div>
+          <div class="form-group col-md-6">
+            <label>Username</label>
+            <input type="username" class="form-control" name="username" />
+            {% if errors['username'] %} {% for error in errors['username'] %}
+            <ul>
+              <li>{{error}}</li>
+            </ul>
+            {% endfor %} {% endif %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="firstname" />
+          </div>
+          <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lastname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            required
+          />
+          {% if errors['password'] %} {% for error in errors['password'] %}
+          <ul>
+            <li>{{error}}</li>
+          </ul>
+          {% endfor %} {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label>Verify Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password2"
+            required
+          />
+          {% if errors['password2'] %} {% for error in errors['password2'] %}
+          <ul>
+            <li>{{error}}</li>
+          </ul>
+          {% endfor %} {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
+    <div class="card-footer text-muted">
+      <a href="/users"> Already have an account? </a>
+    </div>
+  </div>
+</div>
