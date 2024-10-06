@@ -48,7 +48,7 @@ async def create_todo(user: user_dependency, db: db_dependency, todo: TodoReques
 
 
 @router.put('/todo/{todo_id}', status_code=status.HTTP_204_NO_CONTENT)
-async def uptate_todo(user: user_dependency, db: db_dependency,
+async def update_todo(user: user_dependency, db: db_dependency,
                       updated_todo: TodoRequest, todo_id: Annotated[int, Path(gt=0)]):
     if not user:
         raise HTTPException(

@@ -17,7 +17,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get('/')
 async def home():
-    return RedirectResponse('/users')
+    return RedirectResponse('/todos')
 
 
 app.include_router(users.router)

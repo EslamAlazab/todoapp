@@ -31,12 +31,12 @@ def Override_get_current_user():
     return {'username': 'eslamalazab', 'id': 1, 'role': 'admin'}
 
 
-engine = create_engine('sqlite:///./testdb.db')
-
-TestingSessionLocal = sessionmaker(
-    autoflush=False, autocommit=False, bind=engine)
-
-Base.metadata.create_all(engine)
+# engine = create_engine('sqlite:///./testdb.db')
+#
+# TestingSessionLocal = sessionmaker(
+#     autoflush=False, autocommit=False, bind=engine)
+#
+# Base.metadata.create_all(engine)
 
 
 @pytest.fixture

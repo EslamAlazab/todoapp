@@ -79,4 +79,5 @@ async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
                             detail='Could not validate user.')
     token = create_access_token(
         user.username, user.id, user.role, timedelta(minutes=20),)
+    # set the access token as Authorization Header
     return {'access_token': token, 'token_type': 'bearer'}

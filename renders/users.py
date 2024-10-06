@@ -34,6 +34,7 @@ async def login(request: Request, db: db_dependency):
 
     response = RedirectResponse(
         url="/todos", status_code=status.HTTP_302_FOUND)
+    # set the access token as a cookie
     response.set_cookie(key='access_token', value=token, httponly=True)
     messages.append(Message('Login successful', tag='success'))
     return response
